@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 // Or use any icon library you prefer
 import { TiDelete } from "react-icons/ti";
