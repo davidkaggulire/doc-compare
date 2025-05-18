@@ -5,7 +5,7 @@ import { CardContent } from "@/components/ui/card-content";
 import { useSearchParams } from "next/navigation";
 
 import { FaLongArrowAltRight } from "react-icons/fa";
-import DifferencesTable from "../difference/page";
+import DifferencesTable from "@/components/ui/differencesTable";
 import { SemiCircleProgress } from "@/components/ui/semi-circle";
 import { generateComparisonPDF } from "@/utils/pdfGenerator";
 // import { useRouter } from "next/navigation";
@@ -19,25 +19,19 @@ function differenceCount(val: string) {
   // Count the number of keys
   const differenceCount = Object.keys(differences).length;
 
-  console.log("Number of differences:", differenceCount);
+  // console.log("Number of differences:", differenceCount);
   return differenceCount;
 }
 
 export default function AnalyticsPage() {
   //   const router = useRouter();
   const searchParams = useSearchParams();
-  console.log(searchParams);
+  // console.log(searchParams);
   const result = searchParams.get("result");
-  console.log(typeof result);
+  // console.log(typeof result);
 
   const file1Name = searchParams.get("file1");
   const file2Name = searchParams.get("file2");
-
-  console.log("gendi gendi");
-  console.log(file1Name, file2Name);
-
-  const value = JSON.stringify(JSON.parse(result as string));
-  console.log("the value is ", value);
 
   const resultData = JSON.parse(result as string);
 
