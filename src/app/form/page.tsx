@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import FileUploadZone from "../files/page";
+import FileUploadZone from "@/components/ui/fileUpload";
 import { useRouter } from "next/navigation";
 
 // running local app
@@ -30,7 +30,7 @@ export default function FormComparer() {
     }
 
     // Call your compare function here
-    console.log("Comparing files:", file1.name, file2.name);
+    // console.log("Comparing files:", file1.name, file2.name);
     // compareFiles(file1, file2); // your logic here
 
     try {
@@ -48,7 +48,7 @@ export default function FormComparer() {
       }
 
       const data = await response.json();
-      console.log("Comparison result:", data);
+      // console.log("Comparison result:", data);
 
       // ensures no file is stored on the server - thus GDPR rules are kept.
       await fetch(`${part}delete-files`, {
@@ -59,9 +59,9 @@ export default function FormComparer() {
       const encodedData = encodeURIComponent(JSON.stringify(data));
       const encodedFile1 = encodeURIComponent(file1.name);
       const encodedFile2 = encodeURIComponent(file2.name);
-      console.log(encodedData);
-      console.log("here we go");
-      console.log(encodedFile1, encodedFile2);
+      // console.log(encodedData);
+      // console.log("here we go");
+      // console.log(encodedFile1, encodedFile2);
       router.push(
         `/analytics?result=${encodedData}&file1=${encodedFile1}&file2=${encodedFile2}`
       );
@@ -93,7 +93,7 @@ export default function FormComparer() {
         </div>
         <button
           type="submit"
-          className="px-3 py-3 border-1 border-blue-500 rounded-sm bg-blue-500 text-xl text-white w-[100%]"
+          className="px-3 py-3 border-1 border-blue-500 rounded-sm bg-blue-500 text-xl text-white w-[100%] cursor-pointer w-95"
         >
           Compare documents
         </button>
